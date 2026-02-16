@@ -1,13 +1,15 @@
 import mysql from 'mysql2/promise';
 
-const USE_DEMO_MODE = process.env.USE_DEMO_MODE === 'true' || process.env.NODE_ENV === 'development';
+// Use demo mode by default, or if explicitly set to 'true'
+// Set USE_DEMO_MODE=false in environment to use real database
+const USE_DEMO_MODE = process.env.USE_DEMO_MODE !== 'false';
 
 // Database connection pool (only if not in demo mode)
 const pool = USE_DEMO_MODE ? null : mysql.createPool({
-  host: 'database.401-me.tech',
-  user: 'api',
-  password: 'MocneHaslo123!',
-  database: 'adreport',
+  host: process.env.DB_HOST || 'database.401-me.tech',
+  user: process.env.DB_USER || 'api',
+  password: process.env.DB_PASSWORD || 'MocneHaslo123!',
+  database: process.env.DB_NAME || 'adreport',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
