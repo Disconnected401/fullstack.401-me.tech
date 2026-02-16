@@ -16,7 +16,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart-components";
+import type { ChartConfig } from "@/components/ui/chart-components";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart-components";
 import { DashboardStats, Ad, ChartData, User } from "@/lib/types";
 import { TrendingUp, TrendingDown, DollarSign, MousePointerClick, Eye, Target, Plus, Menu, LogOut, Info } from "lucide-react";
 import AddAdForm from "@/components/add-ad-form";

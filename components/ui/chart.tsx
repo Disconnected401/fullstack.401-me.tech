@@ -17,6 +17,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart-components"
 
-export { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent }
+export type { ChartConfig }
+export { ChartContainer, ChartTooltip, ChartTooltipContent }
 
 export { Bar, BarChart, CartesianGrid, XAxis, Area, AreaChart }
