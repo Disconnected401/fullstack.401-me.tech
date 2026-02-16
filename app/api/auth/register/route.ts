@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import pool from '@/lib/db';
+import pool, { USE_DEMO_MODE } from '@/lib/db';
 import { UserInput } from '@/lib/types';
 
 export async function POST(request: NextRequest) {
@@ -20,6 +20,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
+      );
+    }
+
+    // Demo mode - registration not available
+    if (USE_DEMO_MODE) {
+      return NextResponse.json(
+        { error: 'Registration is not available in demo mode. Use demo/demo123 to login.' },
+        { status: 403 }
+      );
+    }
+
+    // Database mode
+    if (!pool) {
+      return NextResponse.json(
+        { error: 'Database not available' },
+        { status: 503 }
       );
     }
 
