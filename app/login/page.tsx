@@ -154,10 +154,10 @@ export default function LoginPage() {
                 )}
               </Button>
 
-              <div className="text-center text-sm text-muted-foreground mt-4">
+              {/* <div className="text-center text-sm text-muted-foreground mt-4">
                 Demo: username: <span className="font-semibold">demo</span>, password:{" "}
                 <span className="font-semibold">demo123</span>
-              </div>
+              </div> */}
             </form>
           </Form>
         </CardContent>
